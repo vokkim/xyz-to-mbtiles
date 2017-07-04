@@ -1,0 +1,31 @@
+{
+  "name": "xyz-to-mbtiles",
+  "version": "0.0.1",
+  "description": "Save map tiles from generic XYZ tile service to MBTiles format",
+  "author": "Mikko Vesikkala",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vokkim/xyz-to-mbtiles.git"
+  },
+  "bin": "./index.js",
+  "keywords": [
+    "mbtiles",
+    "tms",
+    "xyz",
+    "nautical",
+    "chart",
+    "tile"
+  ],
+  "dependencies": {
+    "agentkeepalive": "3.1.0",
+    "bluebird": "3.5.0",
+    "commander": "2.9.0",
+    "lodash": "4.17.4",
+    "request": "2.81.0",
+    "sqlite3": "3.1.8"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
