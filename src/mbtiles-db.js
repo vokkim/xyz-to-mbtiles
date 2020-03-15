@@ -20,7 +20,7 @@ function init(dbFile) {
     })
   }
 
-  function createMetadata({description, bbox, maxzoom, minzoom}) {
+  function createMetadata({description, bbox, maxzoom, minzoom, format}) {
     console.log('Insert metadata ...')
     db.run('INSERT INTO metadata VALUES(?,?)', ['bounds', _.flatten(bbox).join(',')])
     db.run('INSERT INTO metadata VALUES(?,?)', ['maxzoom', maxzoom])
@@ -29,7 +29,7 @@ function init(dbFile) {
     db.run('INSERT INTO metadata VALUES(?,?)', ['type', 'overlay'])
     db.run('INSERT INTO metadata VALUES(?,?)', ['version', '1'])
     db.run('INSERT INTO metadata VALUES(?,?)', ['description', description])
-    db.run('INSERT INTO metadata VALUES(?,?)', ['format', 'png'])
+    db.run('INSERT INTO metadata VALUES(?,?)', ['format', format])
   }
 
   function close() {

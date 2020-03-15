@@ -3,18 +3,17 @@ const _ = require('lodash')
 const fs = require('fs')
 const url = require('url')
 const Promise = require('bluebird')
-const {HttpsAgent} = require('agentkeepalive')
+const HttpAgent = require('agentkeepalive')
 const {longitudeToTileColumn, latitudeToTileRow, tileColumnToLongitude, tileRowToLatitude} = require('./utils')
 const mbtilesDb = require('./mbtiles-db')
-
 let allErrors = []
 
-module.exports = function({mbtilesFile, tilemapUrl, minzoom, maxzoom, bbox, headers, token, retryOnErrors, concurrency}) {
-  const keepaliveAgent = new HttpsAgent({maxSockets: concurrency})
+module.exports = function({mbtilesFile, tilemapUrl, minzoom, maxzoom, bbox, headers, token, retryOnErrors, concurrency, format}) {
+  const keepaliveAgent = tilemapUrl.includes('https') ? new HttpAgent.HttpsAgent({maxSockets: concurrency}) : new HttpAgent({maxSockets: concurrency})
   const db = mbtilesDb(mbtilesFile)
   db.initTables()
 
-  db.createMetadata({description: '', bbox, minzoom, maxzoom})
+  db.createMetadata({description: '', bbox, minzoom, maxzoom, format})
 
   function getAllZoomLevels(retryCount) {
     if (!minzoom || !maxzoom || maxzoom < minzoom) {

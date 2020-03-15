@@ -7,6 +7,7 @@ const TmsToMbtiles = require('./src/tms-to-mbtiles')
 const cmd = program
   .option('--output [mbtiles]', 'Output file')
   .option('--zoom [zoom]', 'Zoom level')
+  .option('--format [format]', 'Tile format (png)')
   .option('--minzoom [minzoom]', 'Min zoom level')
   .option('--maxzoom [maxzoom]', 'Max zoom level')
   .option('--concurrency [concurrency]', 'Number of concurrent requests')
@@ -60,5 +61,6 @@ TmsToMbtiles({
   concurrency: parseInt(concurrency) || 15,
   bbox,
   headers,
-  retryOnErrors: parseInt(retry) || 0
+  retryOnErrors: parseInt(retry) || 0,
+  format: cmd.format || 'png'
 })

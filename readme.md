@@ -14,6 +14,7 @@ Modified copy of spaghetti from [wmts-to-mbtiles](https://github.com/vokkim/wmts
     -h, --help                   output usage information
     --output [mbtiles]           Output file
     --zoom [zoom]                Zoom level
+    --format [format]            Tile format (png)
     --minzoom [minzoom]          Min zoom level
     --maxzoom [maxzoom]          Max zoom level
     --concurrency [concurrency]  Number of concurrent requests
