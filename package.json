@@ -18,12 +18,12 @@
     "tile"
   ],
   "dependencies": {
-    "agentkeepalive": "3.1.0",
-    "bluebird": "3.5.0",
-    "commander": "2.9.0",
-    "lodash": "4.17.4",
-    "request": "2.81.0",
-    "sqlite3": "3.1.8"
+    "agentkeepalive": "4.1.0",
+    "bluebird": "3.7.2",
+    "commander": "5.0.0",
+    "lodash": "4.17.15",
+    "request": "2.88.2",
+    "sqlite3": "4.1.1"
   },
   "engines": {
     "node": ">=6.0.0"
